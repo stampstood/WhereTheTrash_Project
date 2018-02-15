@@ -1,0 +1,91 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 15, 2018, 9:01:00 PM
+    Author     : Mczker
+*/
+
+.d1{
+    background-color: #333533;
+    text-align: center;
+    padding-top: 20px; 
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 25px;
+}
+
+.hm{
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.p1{
+    float: left;
+    
+}
+
+img{
+    height: 8.5%;
+    width: 7%;  
+    margin-top: 0.5%;
+    margin-left: 1%;
+}
+
+body{
+    margin: 0%;
+    background-color: #cfdbd5;
+}
+
+tr{
+    color: white;
+}
+
+.hm1{
+    color: white;
+    float: right;
+    margin-right: 2%
+}
+
+.d2{
+    background-color: #242423;
+    padding-top: 20px; 
+    height: 3.5%;
+    width: 30%;
+    border-radius: 0px 0px 20px 20px;
+    position: absolute;
+    margin-left: 36%;
+}
+
+.d3{
+    background-color: white;
+    margin-top: -13px;
+    padding-top: 20px; 
+    height: 40%;
+    width: 80%;
+    border-radius: 10px;
+    margin-left: 15%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+            09.
+            * element that contains the map. */
+
+            #map {
+                height: 100%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #map {
+                height: 100%;
+                width: 100%;
+            }
