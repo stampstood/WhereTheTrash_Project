@@ -24,15 +24,12 @@
             </table>
             
         </div>
-<!--        <div class="d2">
-            <div class="d3">
-            
-            </div>
-        </div>-->
-        
+
+           
         
         <div id="map"></div>
     </body>
+    <span style="position: absolute">
     <script>
          var map;
         var locations = [
@@ -43,6 +40,7 @@
 
         var infowindow = new google.maps.InfoWindow();
         var marker, i;
+        var img = 'pic/c.png';
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -52,7 +50,8 @@
             for (i = 0; i < locations.length; i++) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                map: map
+                map: map,
+                icon: img
             });
             console.log(locations[i][1])
             
@@ -67,4 +66,11 @@
         window.onload = initMap();
         
     </script>
+    </span>
+          <div class="d2">
+            <div class="d3">
+                <p class="n1">Engineering Building</p>
+            </div>
+        </div>
+    
 </html>

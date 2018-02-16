@@ -32,7 +32,7 @@ a:link {
 img{
     height: 8.5%;
     width: 7%;  
-    margin-top: 0.5%;
+    margin-top: 0.25%;
     margin-left: 1%;
 }
 
@@ -54,21 +54,22 @@ tr{
 .d2{
     background-color: #242423;
     padding-top: 20px; 
-    height: 3.5%;
+    height: 5%;
     width: 30%;
     border-radius: 0px 0px 20px 20px;
-    position: absolute;
+    position: relative;
     margin-left: 36%;
+    margin-top: -56.75%;
 }
 
 .d3{
     background-color: white;
-    margin-top: -13px;
+    margin-top: -2.75%;
     padding-top: 20px; 
-    height: 40%;
+    height: 50%;
     width: 80%;
     border-radius: 10px;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 /* Always set the map height explicitly to define the size of the div
@@ -88,4 +89,12 @@ tr{
             #map {
                 height: 100%;
                 width: 100%;
+                
+            }
+            
+            .n1{
+                margin-top: -4.75%;
+                text-align: center;
+                font-family: 'Rajdhani', sans-serif;
+                font-size: 20px;
             }
