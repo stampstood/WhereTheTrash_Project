@@ -30,7 +30,7 @@ a:link {
 }
 
 img{
-    height: 16%;
+    height: 8.5%;
     width: 7%;  
     margin-top: 0.25%;
     margin-left: 1%;
@@ -54,17 +54,17 @@ tr{
 .d2{
     background-color: #242423;
     padding-top: 20px; 
-    height: 10%;
+    height: 5%;
     width: 30%;
     border-radius: 0px 0px 20px 20px;
     position: relative;
     margin-left: 36%;
-    margin-top: -29.5%;
+    margin-top: -56.75%;
 }
 
 .d3{
     background-color: white;
-    margin-top: -3%;
+    margin-top: -2.75%;
     padding-top: 20px; 
     height: 50%;
     width: 80%;
@@ -93,7 +93,7 @@ tr{
             }
             
             .n1{
-                margin-top: -4.25%;
+                margin-top: -4.75%;
                 text-align: center;
                 font-family: 'Rajdhani', sans-serif;
                 font-size: 20px;
