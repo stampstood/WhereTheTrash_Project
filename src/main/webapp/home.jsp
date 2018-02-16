@@ -24,15 +24,12 @@
             </table>
             
         </div>
-<!--        <div class="d2">
-            <div class="d3">
-            
-            </div>
-        </div>-->
-        
+
+           
         
         <div id="map"></div>
     </body>
+    <span style="position: absolute">
     <script>
          var map;
         var locations = [
@@ -69,4 +66,10 @@
         window.onload = initMap();
         
     </script>
+    </span>
+          <div class="d2">
+            <div class="d3">
+                <p class="n1">Engineering Building</p>
+            </div>
+        </div>
 </html>
