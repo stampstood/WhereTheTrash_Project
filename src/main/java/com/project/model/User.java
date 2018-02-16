@@ -12,10 +12,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author KUROMMNK
- */
+
 public class User {
     private String id;
     private String name;
@@ -62,9 +59,9 @@ public class User {
         this.userLongtitude = userLongtitude;
     }
     
-    public String pullUserLocation(boolean allow){
-        return "";
-    }
+//    public String pullUserLocation(boolean allow){
+//        return "";
+//    }
     
     public void updateUserLocation(String userLatitude,String userLongitude){
         Connection con = null;
@@ -75,13 +72,7 @@ public class User {
             PreparedStatement pstm = con.prepareStatement("UPDATE users set userlatitude = ?, userlongitude = ? WHERE userid = '58130500043';");
             pstm.setString(1, userLatitude);
             pstm.setString(2,userLongitude);
-            pstm.executeUpdate();
-            
-//            ResultSet rs = pstm.executeUpdate();
-//            if(rs.next()){
-//                message = rs.getString("message");
-//            }
-//            rs.close();
+            pstm.executeUpdate();            
             pstm.close();
             con.close();
         } catch (ClassNotFoundException ex) {
@@ -133,16 +124,10 @@ public class User {
     
     public static void main(String[] args) {
         User u = new User();
+        System.out.println(u.getData());        
+        u.updateUserLocation("111.1", "123.1");        
         System.out.println(u.getData());
-        
-        u.updateUserLocation("111.1", "123.1");
-        
-        System.out.println(u.getData());
-        
-        
-//        
-//        System.out.println(u.getData());
-        System.out.println("eiei");
+
     }
     
 }
