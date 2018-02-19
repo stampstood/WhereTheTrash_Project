@@ -44,7 +44,10 @@
 
             var infowindow = new google.maps.InfoWindow();
             var marker, i;
-            var img = 'pic/c.png';
+            var img1 = 'pic/trash_available.png';
+            var img2 = 'pic/trash_defect.png';
+            var img3 = 'pic/trash_full.png';
+
 
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -55,7 +58,7 @@
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(location.lat, location.lng),
                         map: map,
-                        icon: img
+                        icon: img1
                     })
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
