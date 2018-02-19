@@ -4,9 +4,17 @@
         <servlet-name>getLocationServlet</servlet-name>
         <servlet-class>com.project.servlet.getLocationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestGeolocationServlet</servlet-name>
+        <servlet-class>com.project.servlet.TestGeolocationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>getLocationServlet</servlet-name>
         <url-pattern>/getLocation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestGeolocationServlet</servlet-name>
+        <url-pattern>/TestGeolocation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
