@@ -55,11 +55,26 @@
                     zoom: 17.5
                 });
                 trashLocation.map(location => {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(location.lat, location.lng),
-                        map: map,
-                        icon: img1
-                    })
+                    if (location.status == "Available") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img1
+                        })
+                    }else if (location.status == "Defect") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img2
+                        })
+                    }else if (location.status == "Full") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img3
+                        })
+                    }
+
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
                             infowindow.setContent(locations[i][0]);
