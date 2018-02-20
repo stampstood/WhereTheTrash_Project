@@ -25,8 +25,9 @@ a:link {
     text-decoration: none;
 }
 
-a:hover {
+a.hm:hover, a.hm1:hover {
     text-decoration: none;
+    color: #F5CB5C;
 }
 
 .p1{
