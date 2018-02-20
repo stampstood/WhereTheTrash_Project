@@ -21,24 +21,24 @@
         <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
     </head>
     <body>
-        <div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Where the Trash</h4>
-            </div>
-            <div class="modal-body">
-                <p>Would you like to use this website? You need to turn on your location services in setting.</p>
-<!--                <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>-->
-            </div>
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                <button type="button" class="btn btn-primary">Go to setting</button>
-            </div>
-        </div>
-    </div>
-</div>
+                <div id="myModal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Where the Trash</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Would you like to use this website? You need to turn on your location services in setting.</p>
+                                                <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                            </div>
+                            <div class="modal-footer">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                                <button type="button" class="btn btn-primary">Go to setting</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <c:forEach items="${trashList}" var="trash">
             <input type="hidden" name="trash[${trash.id}]" value='{ "lat":"${trash.trashLatitude}", "lng":"${trash.trashLongtitude}","status": "${trash.statusTrash}", "zoneName": "${trash.zoneName}" }' />
         </c:forEach>
@@ -61,55 +61,80 @@
     </body>
     <span style="position: absolute">
         <script>
-    var map;
-    const trashLocation = []
-    const trashes = Array.from(document.querySelectorAll("input[name^='trash[']"))
-    trashes.map(trash => {
-        trashLocation.push(JSON.parse(trash.value))
-    })
+            var latitude;
+            var longitude;
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i;
+            var img1 = 'pic/trash_available.png';
+            var img2 = 'pic/trash_defect.png';
+            var img3 = 'pic/trash_full.png';
+            
+            function showPosition(position)
+            {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+                console.log(latitude);
+                console.log(longitude);
+            }
+            
+            var map;
+            const trashLocation = []
+            const trashes = Array.from(document.querySelectorAll("input[name^='trash[']"))
+            trashes.map(trash => {
+                trashLocation.push(JSON.parse(trash.value))
+            })
 
-    var infowindow = new google.maps.InfoWindow();
-    var marker, i;
-    var img1 = 'pic/trash_available.png';
-    var img2 = 'pic/trash_defect.png';
-    var img3 = 'pic/trash_full.png';
+            function initMap() {
+                console.log("initMap")
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+                latitude = 13.651567;
+                longitude = 100.495030;
+                console.log(">>>" + latitude);
+                console.log(">>>" + longitude);
+                map = new google.maps.Map(document.getElementById('map'), {
+//                    center: {lat: 13.650946, lng: 100.494738},
+                    center: {lat: latitude, lng: longitude},
+                    zoom: 20
+                });
 
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(latitude,longitude),
+                    map: map,
+                }
+                );
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 13.650946, lng: 100.494738},
-            zoom: 17.5
-        });
-        trashLocation.map(location => {
-            if (location.status == "Available") {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(location.lat, location.lng),
-                    map: map,
-                    icon: img1
-                })
-            } else if (location.status == "Defect") {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(location.lat, location.lng),
-                    map: map,
-                    icon: img2
-                })
-            } else if (location.status == "Full") {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(location.lat, location.lng),
-                    map: map,
-                    icon: img3
+                trashLocation.map(location => {
+                    if (location.status == "Available") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img1
+                        })
+                    } else if (location.status == "Defect") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img2
+                        })
+                    } else if (location.status == "Full") {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map,
+                            icon: img3
+                        })
+                    }
+
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                        return function () {
+                            infowindow.setContent(locations[i][0]);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
                 })
             }
-
-            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                return function () {
-                    infowindow.setContent(locations[i][0]);
-                    infowindow.open(map, marker);
-                }
-            })(marker, i));
-        })
-    }
-    window.onload = initMap();
+            window.onload = initMap;
         </script>
     </span>
     <div class="d2">
