@@ -12,7 +12,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta charset="utf-8">
-        <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJyDq6f3uLLbAlrG16Jd_56NAZf-2E-SY"></script>-->
         <script src="http://maps.google.com/maps/api/js?key=AIzaSyCJyDq6f3uLLbAlrG16Jd_56NAZf-2E-SY" type="text/javascript"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,13 +134,6 @@
                                 icon: img3
                             })
                         }
-
-                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                            return function () {
-                                infowindow.setContent(locations[i][0]);
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
                     })
                 }
             }
