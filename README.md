@@ -1,5 +1,6 @@
 # WhereTheTrash_Project
 INT206 Software Process Management Project  
+Link ตัวอย่างของระบบ : http://13.229.76.5:8080/WhereTheTrash_Project/
 
 # Getting started
 หลังจากการ Clone Project ลงมาแล้ว ต้องมีการติดตั้งสิ่งที่ต้องใช้ในการ Run Project คือ
