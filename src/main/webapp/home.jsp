@@ -12,8 +12,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta charset="utf-8">
-        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBEEbNurXmQmY8PfNN4Jy3UuWjL9LJAFXg&callback=initMap" ></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJyDq6f3uLLbAlrG16Jd_56NAZf-2E-SY"></script>-->
+        <script src="http://maps.google.com/maps/api/js?key=AIzaSyCJyDq6f3uLLbAlrG16Jd_56NAZf-2E-SY" type="text/javascript"></script>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
@@ -30,8 +30,8 @@
                         <p>Would you like to use this web site? You need to turn on your location services in setting.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
-                        <button type="button" class="btn btn-primary">Go to setting</button>
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--> 
+                        <a href="/WhereTheTrash_Project/"><button type="button" class="btn btn-primary">Go to setting</button></a>
                     </div>
                 </div>
             </div>
@@ -74,9 +74,9 @@
     </body>
     <span style="position: absolute">
         <script>
-            var timer = setTimeout(function () {
-                initMap();
-            }, 6000);
+//            var timer = setTimeout(function () {
+//                initMap();
+//            }, 2000);
 
             var latitude;
             var longitude;
@@ -93,9 +93,13 @@
                 trashLocation.push(JSON.parse(trash.value))
             })
 
-            function initMap() {
+            function initMap(latitude, longitude) {
                 console.log("initMap")
                 if (latitude == undefined || longitude == undefined) {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 13.6497215, lng: 100.4924436},
+                        zoom: 20
+                    });
                     console.log(">>>>>" + latitude);
                     $("#myModal").modal('show');
                 } else {
@@ -143,20 +147,20 @@
             }
 
             function getLocation() {
-                setTimeout(function () {
-                    showPage();
-                }, 6000);
+                
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
                 }
             }
 
-            function showPosition(position) {
+            async function showPosition(position) {
                 console.log("showPosition")
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
+                latitude = await position.coords.latitude;
+                longitude = await position.coords.longitude;
+                initMap(latitude, longitude);
                 console.log(latitude);
                 console.log(longitude);
+                showPage();
             }
             
             window.onload = getLocation;
