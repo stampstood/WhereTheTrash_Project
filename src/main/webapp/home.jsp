@@ -14,12 +14,14 @@
         <meta charset="utf-8">
         <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBEEbNurXmQmY8PfNN4Jy3UuWjL9LJAFXg&callback=initMap" ></script>
         <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+        
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body onload="myFunction()" style="margin:0;">
 
         <div id="myModal" class="modal fade">
+            <div class="dialog-center">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -34,6 +36,7 @@
                         <button type="button" class="btn btn-primary">Go to setting</button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
         <c:forEach items="${trashList}" var="trash">
@@ -132,12 +135,12 @@
                             })
                         }
 
-                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                            return function () {
-                                infowindow.setContent(locations[i][0]);
-                                infowindow.open(map, marker);
-                            }
-                        })(marker, i));
+//                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+//                            return function () {
+//                                infowindow.setContent(locations[i][0]);
+//                                infowindow.open(map, marker);
+//                            }
+//                        })(marker, i));
                     })
                 }
             }
