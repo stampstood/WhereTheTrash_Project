@@ -32,7 +32,7 @@
                                 <h4 class="modal-title">Where the Trash</h4>
                             </div>
                             <div class="modal-body">
-                                <p>Would you like to use this website? You need to turn on your location services in setting.</p>
+                                <p>Would you like to use this web site? You need to turn on your location services in setting.</p>
                             </div>
                             <div class="modal-footer">
                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
@@ -63,6 +63,11 @@
         
         <div style="display:none;" id="myDiv" class="animate-bottom">
         <div id="map"></div>
+        <div class="d2">
+        <div class="d3">
+            <p class="n1">Engineering Building</p>
+        </div>
+    </div>
         </div>
         
         <script>
@@ -158,10 +163,6 @@ function showPage() {
             window.onload = initMap;
         </script>
     </span>
-    <div class="d2">
-        <div class="d3">
-            <p class="n1">Engineering Building</p>
-        </div>
-    </div>
+    
 
 </html>
