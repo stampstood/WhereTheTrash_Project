@@ -12,17 +12,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta charset="utf-8">
-<<<<<<< HEAD
-        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBEEbNurXmQmY8PfNN4Jy3UuWjL9LJAFXg&callback=initMap" ></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-        
-=======
         <script src="http://maps.google.com/maps/api/js?key=AIzaSyCJyDq6f3uLLbAlrG16Jd_56NAZf-2E-SY" type="text/javascript"></script>
->>>>>>> 94ec6f603a7734fc5da006ace4e0f9b73bb91bdb
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body onload="myFunction()" style="margin:0;">
+    <body style="margin:0;">
 
         <div id="myModal" class="modal fade">
             <div class="dialog-center">
@@ -119,8 +113,7 @@
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(latitude, longitude),
                         map: map,
-                    }
-                    );
+                    });
 
                     trashLocation.map(location => {
                         if (location.status == "Available") {
@@ -142,22 +135,11 @@
                                 icon: img3
                             })
                         }
-<<<<<<< HEAD
-
-//                        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-//                            return function () {
-//                                infowindow.setContent(locations[i][0]);
-//                                infowindow.open(map, marker);
-//                            }
-//                        })(marker, i));
-=======
->>>>>>> 94ec6f603a7734fc5da006ace4e0f9b73bb91bdb
                     })
                 }
             }
 
             function getLocation() {
-                
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(showPosition);
                 }
